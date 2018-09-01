@@ -1,0 +1,91 @@
+﻿@model myproject.Models.TrainingVideo
+ @using System.Data
+
+@{
+    Layout = "~/Views/_formlayout.cshtml";
+    //   ViewBag.Title = "TrainingVideoDetail";
+    DataTable dts = ViewBag.dts;
+    DataTable dtvc = ViewBag.dtvc;
+
+
+
+
+}
+
+<div class="x_title">
+    <h2>TRAINING VIDEO DETAIL </h2>
+
+    <div class="clearfix"></div>
+</div>
+
+<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/Admin/TrainingVideoInsert" method="post" name="UploadTime">
+    
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+            VIDEO TITLE:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" name="VideoTitle" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+            VIDEO URL:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" name="VideoURL" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+            STAFF ID:
+        </label>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="form-control col-md-7 col-xs-12">
+               
+                    @Html.DropDownList("StaffID", new SelectList(dts.DefaultView, "StaffID", "Name"))
+                </div>
+            </div>
+        </div>
+    
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+            VIDEO CATEGORY ID:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="form-control col-md-7 col-xs-12">
+
+                @Html.DropDownList("VideoCategoryID", new SelectList(dtvc.DefaultView, "VideoCategoryID", "CategoryName"))
+                </div>
+
+
+            </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+            HELPFUL COUNT:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" name="HelpfulCount" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+            TOTAL COUNT:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" name="TotalCount" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+    
+
+    <div class="ln_solid"></div>
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <button type="submit" class="btn btn-primary">Cancel</button>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</form>

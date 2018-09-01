@@ -1,0 +1,110 @@
+﻿@model myproject.Models.Crop
+@using System.Data
+
+@{
+    Layout = "~/Views/_formlayout.cshtml";
+    //   ViewBag.Title = "CropDetail";
+    DataTable dtCT = ViewBag.dtCT;
+
+}
+
+<div class="x_title">
+    <h2>CROP DETAILS </h2>
+
+    <div class="clearfix"></div>
+</div>
+<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/Admin/CropInsert" method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+            NAME:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="name" required="required" name="Name" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fileupload">
+            PHOTO:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="file" name="Photo" value="fileupload"
+                   id="fileupload" class="form-control col-md-7 col-xs-12" required="required">
+
+        </div>
+    </div>
+
+   
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">  CROP TYPE:</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div id="season" data-toggle="buttons"  class="form-control">
+
+                
+                    @Html.DropDownList("CropTypeID", new SelectList(dtCT.DefaultView, "CropTypeID", "Name"))
+               
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+            DETAILS:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <textarea class="form-control" rows="3"  name="Details" required="required"></textarea>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12"> SELECT SEASON:</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div id="season" data-toggle="buttons">
+                <select id="myList" name="Season" required="required" class="form-control">
+                    <option value="NONE">NONE</option>
+                    <option value="Summer">Summer</option>
+                    <option value="Winter">Winter</option>
+                    <option value="RainFall">RainFall</option>
+                    <option value="Spring">Spring</option>
+                    <option value="Autumn">Autumn</option>
+
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12"> SOIL TYPE:</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div id="SoilType" data-toggle="buttons">
+                <select id="myList" name="SoilType" required="required" class="form-control">
+                    <option value="NONE">NONE</option>
+                    <option value="Alluvial Soil">Alluvial Soil</option>
+                    <option value="Black Soil">Black Soil</option>
+                    <option value="Red Soil">Red Soil</option>
+                    <option value="Laterite Soil">Laterite Soil</option>
+                    <option value="Mountain Soil">Mountain Soil</option>
+                    <option value="Loamy Soil">Loamy Soil</option>
+                    <option value="Clay Soil">Clay Soil</option>
+                </select>
+            </div>
+        </div>
+    </div>
+   
+
+    <div class="ln_solid"></div>
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <button type="submit" class="btn btn-primary">Cancel</button>
+            <button type="submit" id="button1" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+
+
+</form>
+

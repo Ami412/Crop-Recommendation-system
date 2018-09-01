@@ -1,0 +1,62 @@
+﻿@model myproject.Models.CropType
+
+@{
+    Layout = "~/Views/_formlayout.cshtml";
+   // ViewBag.Title = "CropTypeEdit";
+}
+
+<div class="x_title">
+    <h2>CROP TYPE EDIT </h2>
+
+    <div class="clearfix"></div>
+</div>
+
+<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/Admin/CropTypeUpdate" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+            NAME:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="name" name="Name" class="form-control col-md-7 col-xs-12" value="@Model.Name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="photo">
+            PHOTO:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @if (Model.CropTypeID > 0)
+            {
+                <img src="@Model.Photo" style="max-height:200px; max-width:200px; border: solid 3px #888888;" />
+                <br />
+            }
+            <input type="file" name="Photo"
+                   id="fileupload" class="form-control col-md-7 col-xs-12">
+
+        </div>
+    </div>
+
+    <div class="ln_solid"></div>
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <input type="hidden" name="CropTypeID" value="@Model.CropTypeID" />
+            <button type="submit" id="button1" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

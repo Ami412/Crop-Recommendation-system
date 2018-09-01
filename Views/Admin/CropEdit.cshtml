@@ -1,0 +1,109 @@
+﻿@model myproject.Models.Crop
+@using System.Data
+
+@{
+    Layout = "~/Views/_formlayout.cshtml";
+    //   ViewBag.Title = "CropEdit";
+    DataTable dtCT = ViewBag.dtCT;
+}
+
+<div class="x_title">
+    <h2>CROP DETAILS </h2>
+
+    <div class="clearfix"></div>
+</div>
+<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/Admin/Update" method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+            NAME:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+
+            <input type="text" id="name" name="Name" value="@Model.Name" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fileupload">
+            PHOTO:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @if (Model.CropID > 0)
+            {
+                <img src="@Model.Photo" style="max-height:200px; max-width:200px; border: solid 3px #888888;" />
+                <br />
+            }
+            <input type="file" name="Photo"
+                   id="fileupload" class="form-control col-md-7 col-xs-12">
+
+        </div>
+    </div>
+
+    
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12">  CROP TYPE:</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div id="season" data-toggle="buttons">
+
+                <Div class="form-control">
+                  @Html.DropDownList("CropTypeID", new SelectList(dtCT.DefaultView, "CropTypeID", "Name", Model.CropTypeID))
+
+                  </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="details" class="control-label col-md-3 col-sm-3 col-xs-12">DETAILS:</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+
+            <input id="details" class="form-control col-md-7 col-sxs-12" value="@Model.Details" type="text" name="Details">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12"> SELECT SEASON:</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div id="season" data-toggle="buttons">
+
+                <select id="myList" name="Season" class="form-control">
+                    <option value="NONE" selected="@(Model.Season == "NONE")">NONE</option>
+                    <option value="Summer" selected="@(Model.Season == "Summer")">Summer</option>
+                    <option value="Winter" selected="@(Model.Season == "Winter")">Winter</option>
+                    <option value="RainFall" selected="@(Model.Season == "RainFall")">RainFall</option>
+                    <option value="Spring" selected="@(Model.Season == "Spring")">Spring</option>
+                    <option value="Autumn" selected="@(Model.Season == "Autumn")">Autumn</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12"> SOIL TYPE:</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div id="SoilType" data-toggle="buttons">
+                <select id="SoilType" name="SoilType" class="form-control">
+                    <option value="NONE" selected="@(Model.SoilType == "NONE")">NONE</option>
+                    <option value="Alluvial Soil" selected="@(Model.SoilType == "Alluvial Soil")">Alluvial Soil</option>
+                    <option value="Black Soil" selected="@(Model.SoilType == "Black Soil")">Black Soil</option>
+                    <option value="Red Soil" selected="@(Model.SoilType == "Red Soil")">Red Soil</option>
+                    <option value="Laterite Soil" selected="@(Model.SoilType == "Laterite Soil")">Laterite Soil</option>
+                    <option value="Mountain Soil" selected="@(Model.SoilType == "Mountain Soil")">Mountain Soil</option>
+                    <option value="Loamy Soil" selected="@(Model.SoilType == "Loamy Soil")">Loamy Soil</option>
+                    <option value="Clay Soil" selected="@(Model.SoilType == "Clay Soil")">Clay Soil</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="ln_solid"></div>
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <input type="hidden" name="CropID" value="@Model.CropID" />
+            <button type="submit" id="button1" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</form>

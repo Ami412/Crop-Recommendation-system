@@ -1,0 +1,118 @@
+﻿
+
+@using myproject.Models
+@using System.Data
+@model DataTable
+
+
+@{
+    Layout = "~/Views/_MasterLayout.cshtml";
+    //  ViewBag.Title = "PacketDetail1";
+
+    DataTable dtC = ViewBag.dtC;
+   
+
+    Retailer r = (Retailer) Session["Retailer"];
+
+}
+
+
+
+<div id="maincontainer">
+    <section id="product">
+        <div class="container">
+            <div class="row">
+                <!-- Register Account-->
+                <div class="span9">
+                    <h1 class="heading1"><span class="maintext">Packet Details</span><span class="subtext">Insert New Packet </span></h1>
+
+                    <form class="form-horizontal" action="/Retailer/PacketInsert" method="post" enctype="multipart/form-data">
+
+                        <div class="registerbox">
+                            <fieldset>
+                                <div class="control-group">
+                                    <label class="control-label">TITLE:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="Title">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">PHOTO:</label>
+                                    <div class="controls">
+                                   
+                                        <input type="file" name="Photo" value="fileupload"
+                                               id="fileupload"  class="input-xlarge" required="required">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">PRICE:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="Price">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"> DESCRIPTION:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="Description">
+                                    </div>
+                                </div>
+                              
+                                
+
+                                <div class="control-group">
+                                    <label class="control-label"> CROP:</label>
+                                    <div class="controls">
+                                        @Html.DropDownList("CropID", new SelectList(dtC.DefaultView, "CropID", "Name"))
+                                      
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label"> PACKET SIZE:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="PacketSize">
+                                    </div>
+                                </div>
+                              
+
+
+
+                                <div class="control-group">
+
+                                    <div class="controls">
+                                        <input style="height: 40px; width: 100px;" type="Submit" class="btn btn-orange" value="SUBMIT" name="Submit"> &nbsp; &nbsp;  &nbsp;  &nbsp;
+
+                                    </div>
+                                </div>
+
+
+
+                            </fieldset>
+                        </div>
+
+                    </form>
+                    <div class="clearfix"></div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

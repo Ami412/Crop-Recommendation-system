@@ -1,0 +1,95 @@
+﻿@model myproject.Models.Feedback
+@using System.Data
+
+@{
+    Layout = "~/Views/_MasterLayout.cshtml";
+    //  ViewBag.Title = "ContactUs";
+}
+
+<div id="maincontainer">
+    <section id="product">
+        <div class="container">
+            <!--  breadcrumb -->
+            <!-- Contact Us-->
+            <h1 class="heading1"><span class="maintext">Feedback Us</span><span class="subtext">Give Your Suggestion here!!</span></h1>
+            <div class="row">
+                <div class="span9">
+                    <form class="form-vertical" action="/Guest/FeedbackInsert" method="post" enctype="multipart/form-data">
+                        <div class="registerbox">
+                            <fieldset>
+                                <div class="control-group">
+                                    <label for="name" class="control-label">Name <span class="required"></span></label>
+                                    <div class="controls">
+                                        <input type="text"  class="required" id="Name" value="" name="Name">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label for="email" class="control-label">Email <span class="required"></span></label>
+                                    <div class="controls">
+                                        <input type="email" class="required email" id="email" value="" name="Email">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label for="name" class="control-label">Phone <span class="required"></span></label>
+                                    <div class="controls">
+                                        <input type="text" class="required" id="Name" value="" name="Phone">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="name" class="control-label">Address <span class="required"></span></label>
+                                    <div class="controls">
+                                        <textarea class="required" rows="6" cols="40" id="Address" name="Address"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="name" class="control-label">Nature Of Feedback <span class="required"></span></label>
+                                    <div class="controls">
+                                        <div id="season" data-toggle="buttons">
+                                            <select id="myList" name="NatureOfFeedback" required="required" class="controls">
+                                                <option value="NONE">NONE</option>
+                                                <option value="About Website">About Website</option>
+                                                <option value="Suggestions">Suggestions</option>
+                                                <option value="Complaints and Grievances">Complaints and Grievances</option>
+                                                <option value="Others">Others</option>
+
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="name" class="control-label">Subject <span class="required"></span></label>
+                                    <div class="controls">
+                                        <input type="text" class="required" id="Subject" value="" name="Subject">
+                                    </div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    <label for="message" class="control-label">Comment</label>
+                                    <div class="controls">
+                                        <textarea class="required" rows="6" cols="40" id="Comment" name="Comment"></textarea>
+                                    </div>
+                                </div>
+
+
+
+                                <input type="submit" value="Submit" class="btn btn-orange" />
+
+
+                            </fieldset>
+                            </div>
+</form>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+</div>
+
+

@@ -1,0 +1,58 @@
+﻿
+@model myproject.Models.Retailer
+@{
+    Layout = "~/Views/_MasterLayout.cshtml";
+    // ViewBag.Title = "RetailerLogin";
+}
+
+<div id="maincontainer">
+    <section id="product">
+        <div class="container">
+            <!--  breadcrumb -->
+           
+            <!-- Account Login-->
+            <div class="row">
+                <div class="span9">
+                    <h1 class="heading1"><span class="maintext">Retailer Login</span><span class="subtext">First Login here to View All your account information</span></h1>
+                    <section class="newcustomer">
+                        <h2 class="heading2">New Retailer </h2>
+                        <div class="loginbox">
+                            <h4 class="heading4"> Register Account</h4>
+                            <p>By creating an account you will be able to sell your products, be up to date, and keep track of the orders you have got!!.</p>
+                            
+                            <a href="~/Guest/RetailerRegistration" class="btn btn-orange">Continue</a>
+                        </div>
+                    </section>
+                    <section class="returncustomer">
+
+                        <div class="loginbox">
+                          
+                            <form class="form-vertical"  action="/Guest/RetailerAuthenticate" method="post">
+                                <fieldset>
+                                    <div class="control-group">
+                                        <label class="control-label">Username:</label>
+                                        <div class="controls">
+                                            <input type="text" class="span3"  name="Username" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Password:</label>
+                                        <div class="controls">
+                                            <input type="password" class="span3"  name="Password" required="required">
+                                        </div>
+                                    </div>
+                                    <a class="" href="~/Retailer/ForgotPasswordRetailer">Forgotten Password</a>
+                                    <br>
+                                    <br>
+                                    <input type="submit" value="Login" class="btn btn-orange" />
+                                </fieldset>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+</div>

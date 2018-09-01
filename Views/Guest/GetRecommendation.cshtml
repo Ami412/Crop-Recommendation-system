@@ -1,0 +1,54 @@
+﻿
+
+@using System.Data
+@model DataTable
+@{
+    Layout = "~/Views/_MasterLayout.cshtml";
+    // ViewBag.Title = "MyOrders";
+   
+     }
+
+
+
+<div id="maincontainer">
+    <section id="product">
+        <div class="container">
+            <!--  breadcrumb -->
+
+            <h1 class="heading1"><span class="maintext">Crops Recommended</span><span class="subtext"> </span></h1>
+            <!-- Cart-->
+            <div class="cart-info">
+                <form class="form-horizontal" method="post" enctype="multipart/form-data" action="~/Guest/HomePage1">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                           
+                            <th class="model">Soil Type</th>
+                            <th class="model">Crop Name</th>
+                           
+                        </tr>
+                        @for (int i = 0; i < Model.Rows.Count; i++)
+                        {
+                            <tr>                            
+                                
+                                <td class="total">@Model.Rows[i]["SoilType"]</td>
+                                <td class="total">@Model.Rows[i]["CropName"]</td>
+
+                                 </tr>
+
+
+                        }
+
+                    </table>
+                    <input type="submit" class="btn btn-orange pull-right" value="Get Back to Home Page">
+
+
+                </form>
+                <div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+</div>

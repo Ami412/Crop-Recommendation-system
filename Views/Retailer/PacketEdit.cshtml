@@ -1,0 +1,98 @@
+﻿@model myproject.Models.Packet
+@using System.Data
+
+@{
+
+    Layout="~/Views/_MasterLayout.cshtml";
+   
+}
+
+<div id="maincontainer">
+    <section id="product">
+        <div class="container">
+            <div class="row">
+                <!-- Register Account-->
+                <div class="span9">
+                    <h1 class="heading1"><span class="maintext"> Edit Packet Details</span><span class="subtext"></span></h1>
+
+                    <form class="form-horizontal" action="/Retailer/PacketUpdate" method="post" enctype="multipart/form-data">
+
+                        <div class="registerbox">
+                            <fieldset>
+                                <div class="control-group">
+                                    <label class="control-label">TITLE:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="Title" value="@Model.Title">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">PHOTO:</label>
+                                    <div class="controls">
+                                        @if (Model.PacketID > 0)
+                                           {
+                                            <img src="@Model.Photo" style="max-height:200px; max-width:200px; border: solid 3px #888888;"  />
+                                            <br />
+                                        }
+
+                                        <input type="file" name="Photo" value="fileupload"
+                                               id="fileupload" class="input-xlarge"  >
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">PRICE:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="Price" value="@Model.Price">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"> DESCRIPTION:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="Description" value="@Model.Description">
+                                    </div>
+                                </div>
+
+                              
+
+                            <div class="control-group">
+                                    <label class="control-label"> CROP:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="CropID" value="@Model.CropID">
+
+                                    </div>
+                                </div>
+                             
+                                <div class="control-group">
+                                    <label class="control-label"> PACKET SIZE:</label>
+                                    <div class="controls">
+                                       
+                                        <input type="text" class="input-xlarge" required="required" name="PacketSize" value="@Model.PacketSize">
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="control-group">
+
+                                    <div class="controls">
+                                        <input type="hidden" name="PacketID" value="@Model.PacketID" />
+                                        <input style="height: 40px; width: 100px;" type="Submit" class="btn btn-orange" value="SUBMIT" name="Submit"> &nbsp; &nbsp;  &nbsp;  &nbsp;
+
+                                    </div>
+                                </div>
+
+
+
+                            </fieldset>
+                        </div>
+
+                    </form>
+                   
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+

@@ -1,0 +1,68 @@
+﻿@using myproject.Models
+@using System.Data
+@model DataTable
+
+@{
+    Layout = "~/Views/_MasterLayout.cshtml";
+    //   ViewBag.Title = "TrainingVideos";
+    VideoCategory C = ViewBag.Cat;
+    VideoCategory ct = new VideoCategory();
+    DataTable dt = ct.selectall();
+
+}
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h2 style="color:orangered;"> &nbsp;&nbsp;&nbsp;&nbsp;TRAINING VIDEOS</h2>
+
+        </div>
+
+        <br />
+        
+            @for (int i = 0; i < Model.Rows.Count; i++)
+            {
+                <div class="span4">
+                    <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                        <a class="prdocutname" href="product.html">TITLE:@Model.Rows[i]["VideoTitle"] </a><br/>
+                        <a class="prdocutname" href="product.html">TIME:@Model.Rows[i]["UploadTime"] </a>
+
+                        <a href="/Guest/AllPackets/@Model.Rows[i]["TrainingVideoID"]">
+                            <iframe width="365" height="365"
+                                    src="@Model.Rows[i]["VideoURl"]">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </iframe>
+                        </a>
+                    </div>
+                </div>
+        
+            }
+        </div>
+
+    
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

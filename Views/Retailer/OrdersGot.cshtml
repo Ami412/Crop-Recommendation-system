@@ -1,0 +1,84 @@
+﻿
+
+@using myproject.Models
+@using System.Data
+@model DataTable
+@{
+    Layout = "~/Views/_MasterLayout.cshtml";
+    // ViewBag.Title = "OrdersGot";
+
+
+    Retailer r = (Retailer)Session["Retailer"];
+
+}
+
+
+
+<div id="maincontainer">
+    <section id="product">
+        <div class="container">
+            <!--  breadcrumb -->
+
+            <h1 class="heading1"><span class="maintext">ORDERS RECEIVED</span><span class="subtext"> </span></h1>
+            <!-- Cart-->
+            <div class="cart-info">
+                <form class="form-horizontal" method="post" enctype="multipart/form-data" action="~/Guest/HomePage1">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <th class="image">Photo</th>
+                            <th class="image">Packet Name</th>
+                            <th class="model">Order Date</th>
+                            <th class="model">Packet Size</th>
+                            <th class="quantity">Quantity</th>
+                            <th class="price">Price</th>
+                            <th class="total">Total Price</th>
+                            <th class="price">Customer Name</th>
+                            <th class="total">Customer Email</th>
+                            <th class="total">Address</th>
+                            <th class="total">City</th>
+
+                        </tr>
+                        @for (int i = 0; i < Model.Rows.Count; i++)
+                        {
+                            <tr>
+
+                                <td class="image"><a href="#"><img title="product" alt="product" src="@Model.Rows[i]["Photo"]" height="50" width="50"></a></td>
+                                <td class="name"><a href="#">@Model.Rows[i]["Title"]</a></td>
+
+
+                                <td class="total">@Model.Rows[i]["OrderDate"]</td>
+                                <td class="total">@Model.Rows[i]["PacketSize"]gm</td>
+
+                                <td class="total">@Model.Rows[i]["Qty"]</td>
+
+                                <td class="price">₹ @Model.Rows[i]["Price"].00</td>
+                                <td class="total">₹ @Model.Rows[i]["NetPrice"].00</td>
+                                <td class="total">@Model.Rows[i]["FarmerName"]</td>
+                                <td class="total">@Model.Rows[i]["FarmerEmail"]</td>
+                                <td class="total">@Model.Rows[i]["FarmerAddress"]</td>
+                                <td class="total">@Model.Rows[i]["FarmerCity"]</td>
+
+
+
+
+
+
+                            </tr>
+
+
+                        }
+
+                    </table>
+                    <input type="submit" class="btn btn-orange pull-right" value="Continue Shopping">
+
+
+                </form>
+                <div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+</div>

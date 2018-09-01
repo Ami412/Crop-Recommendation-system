@@ -1,0 +1,251 @@
+﻿
+@using System.Data
+@using myproject.Models
+@{
+    Layout = "~/Views/_MasterLayout.cshtml";
+    ViewBag.Title = "HomePage1";
+
+    CropType ct = new CropType();
+    DataTable dt = ct.selectall();
+
+}
+
+
+    <div id="maincontainer">
+        <!-- Slider Start-->
+        <section class="slider">
+            <div class="container">
+                <div class="flexslider" id="mainslider">
+                    <ul class="slides" style="width:1000px ; height:500px;">
+                        <li>
+
+
+                            <img src="~/HomePageIMGS/32744_CASTOR-OIL---IT-PROMISES-BIG-PROFITS.jpg" />
+                        </li>
+                        <li>
+
+
+                            <img src="~/HomePageIMGS/b3f49-tomato-plant.jpg" />
+                        </li>
+                        <li>
+
+
+                            <img src="~/HomePageIMGS/coffee-plant.jpg" />
+                        </li>
+                        <li>
+                            <img src="~/HomePageIMGS/crop-rotation-main_1000.jpg" />
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Slider End-->
+        <!-- Section Start-->
+        <section class="container otherddetails">
+            <div class="otherddetailspart">
+                <div class="innerclass free">
+                    <h2>Free shipping</h2>
+                    All over in world over $200
+                </div>
+            </div>
+            <div class="otherddetailspart">
+                <div class="innerclass payment">
+                    <h2>Easy Payment</h2>
+                    Payment Gatway support
+                </div>
+            </div>
+            <div class="otherddetailspart">
+                <div class="innerclass shipping">
+                    <h2>24hrs Shipping</h2>
+
+                </div>
+            </div>
+            <div class="otherddetailspart">
+                <div class="innerclass choice">
+                    <h2>Over 5000 Choice</h2>
+                    50,000+ Products
+                </div>
+            </div>
+        </section>
+        <!-- Section End-->
+        <!-- Featured Product-->
+        <section id="featured" class="row mt60">
+            <div class="container">
+                <ul class="thumbnails">
+                    <li class="span3">
+                        <h1 class="heading1">
+                            <span class="maintext orange">Featured Products</span>
+                            <br>
+                            <span class="subtext"> See Our Most featured Products</span>
+                        </h1>
+                    </li>
+                    <li class="span3">
+                        <a class="prdocutname" href="product.html">TEA</a>
+                        <div class="thumbnail">
+                            <a href="~/Guest/AllPackets/41"><img alt="" src="~/cropimgs/636247464451764073_tea - Copy.jpg"></a>
+
+                            <div class="pricetag">
+                                <span class="spiral"></span><a href="~/Guest/AllPackets/41" class="productcart"><b>More Packets</b></a>
+                                <div class="price">
+                                    <div class="pricenew"></div>
+                                    <div class="priceold"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="span3">
+                        <a class="prdocutname" href="product.html">BLACK GRAM</a>
+                        <div class="thumbnail">
+                            <span class="offer tooltip-test">Offer</span>
+                            <a href="~/Guest/AllPackets/27"><img alt="" src="~/cropimgs/636247421927206273_Black-Gram-Seeds-Urad-Dal-seeds - Copy.jpg" /></a>
+
+                            <div class="pricetag">
+                                <span class="spiral"></span><a href="~/Guest/AllPackets/27" class="productcart"><b>More Packets</b></a>
+                                <div class="price">
+                                    <div class="pricenew"></div>
+                                    <div class="priceold"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="span3">
+                        <a class="prdocutname" href="product.html">GARLIC </a>
+                        <div class="thumbnail">
+                            <a href="~/Guest/AllPackets/45"><img alt="" src="~/cropimgs/636247547808723648_garlic - Copy.jpg"></a>
+
+                            <div class="pricetag">
+                                <span class="spiral"></span><a href="~/Guest/AllPackets/45" class="productcart"><b>More Packets</b></a>
+                                <div class="price">
+                                    <div class="pricenew"></div>
+                                    <div class="priceold"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Latest Product-->
+        <section id="latest" class="row mt40">
+            <div class="container">
+                <ul class="thumbnails">
+                    <li class="span3">
+                        <h1 class="heading1">
+                            <span class="maintext orange">Latest Products</span>
+                            <br>
+                            <span class="subtext"> See Our  Latest Products</span>
+                        </h1>
+                    </li>
+                    <li class="span3">
+                        <a class="prdocutname" href="product.html">TOMATO SEED</a>
+                        <div class="thumbnail">
+                            <a href="~/Guest/AllPackets/49"><img alt="" src="~/cropimgs/636247551990471218_tomato-seeds.jpg" /></a>
+                           
+                            <div class="pricetag">
+                                <span class="spiral"></span><a href="~/Guest/AllPackets/49" class="productcart"><b>More Packets</b></a>
+                                <div class="price">
+                                    <div class="pricenew"></div>
+                                    <div class="priceold"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="span3">
+                        <a class="prdocutname" href="product.html">RICE</a>
+                        <div class="thumbnail">
+                            <span class="new tooltip-test">New</span>
+                            <a href="~/Guest/AllPackets/22"><img alt="" src="~/cropimgs/636247416979476495_rice.jpg" /></a>
+                          
+                            <div class="pricetag">
+                                <span class="spiral"></span><a href="~/Guest/AllPackets/22" class="productcart"><b>More Packets</b></a>
+                                <div class="price">
+                                    <div class="pricenew"></div>
+                                    <div class="priceold"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="span3">
+                        <a class="prdocutname" href="#">SUGARCANE</a>
+                        <div class="thumbnail">
+                            <a href="~/Guest/AllPackets/35"><img alt="" src="~/cropimgs/636247457878580934_Sugarcane.jpg" /></a>
+ 
+                            <div class="pricetag">
+                                <span class="spiral"></span><a href="~/Guest/AllPackets/35" class="productcart"><b>More Packets</b></a>
+                                <div class="price">
+                                    <div class="pricenew"></div>
+                                    <div class="priceold"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        @*  <!-- Popular Brands-->
+            <section id="popularbrands" class="container mt40">
+                <div class="row">
+                    <div class="span3">
+                        <h1 class="heading1">
+                            <span class="maintext">Popular Brands</span>
+                            <br>
+                            <span class="subtext"> See Our  Popular Brands</span>
+                        </h1>
+                    </div>
+                    <div class="brandcarousalrelative span9">
+                        <ul id="brandcarousal">
+                            <li><img src="img/brand1.jpg" alt="" title="" /></li>
+                            <li><img src="img/brand2.jpg" alt="" title="" /></li>
+                            <li><img src="img/brand3.jpg" alt="" title="" /></li>
+                            <li><img src="img/brand4.jpg" alt="" title="" /></li>
+                            <li><img src="img/brand1.jpg" alt="" title="" /></li>
+                            <li><img src="img/brand2.jpg" alt="" title="" /></li>
+                            <li><img src="img/brand3.jpg" alt="" title="" /></li>
+                            <li><img src="img/brand4.jpg" alt="" title="" /></li>
+                            <li><img src="img/brand1.jpg" alt="" title="" /></li>
+                            <li><img src="img/brand2.jpg" alt="" title="" /></li>
+                            <li><img src="img/brand3.jpg" alt="" title="" /></li>
+                            <li><img src="img/brand4.jpg" alt="" title="" /></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                        <a id="prev" class="prev" href="#">&lt;</a>
+                        <a id="next" class="next" href="#">&gt;</a>
+                    </div>
+                </div>
+            </section>
+        *@
+        <!-- Newsletter Signup-->
+        <section id="newslettersignup mt40">
+            <div class="container">
+                <div class="row">
+                    <div class="span3">
+                        <div class="pull-left newsletter2">
+                            <h1 class="heading1">
+                                <span class="maintext">Newsletters Signup</span>
+                                <br>
+                                <span class="subtext">
+                                    & get attractive Offers
+                                </span>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="pull-right span9">
+                        <form class="form-horizontal mt20">
+                            <div class="input-prepend">
+                                <input type="text" placeholder="Subscribe to Newsletter" id="inputIcon" class="input-xlarge">
+                                <input value="Subscribe" class="btn btn-orange" type="submit">
+                                Sign in
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+

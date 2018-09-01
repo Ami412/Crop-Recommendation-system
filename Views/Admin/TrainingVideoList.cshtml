@@ -1,0 +1,67 @@
+﻿@using System.Data
+@model DataTable
+
+@{
+    Layout = "~/Views/_formlayout.cshtml";
+    //  ViewBag.Title = "TrainingVideoList";
+}
+
+
+<div class="x_title">
+    <h2>TRAINING VIDEO LIST</h2>
+
+    <div class="clearfix"></div>
+</div>
+
+<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/Admin/TrainingVideoList" method="post" enctype="multipart/form-data">
+
+
+    <table id="datatable" class="table table-striped table-bordered" border="1" style="border-color:lightgrey;">
+        <thead>
+            <tr>
+                <th>Video VideoID</th>
+                <th>Upload Time</th>
+                <th>Video Title</th>
+                <th>Video URL</th>
+                <th>Staff ID</th>
+                <th>Video CategoryID</th>
+                <th>Helpful Count</th>
+                <th>Total Count</th>
+                <td></td>
+                <td></td>
+
+            </tr>
+            </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Rows.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Rows[i]["TrainingVideoID"]</td>
+                    <td>@Model.Rows[i]["UploadTime"]</td>
+                    <td>@Model.Rows[i]["VideoTitle"]</td>
+                    <td>@Model.Rows[i]["VideoURL"]</td>
+                    <td>@Model.Rows[i]["StaffID"]</td>
+                    <td>@Model.Rows[i]["VideoCategoryID"]</td>
+                    <td>@Model.Rows[i]["HelpfulCount"]</td>
+                    <td>@Model.Rows[i]["TotalCount"]</td>
+
+
+
+
+
+
+
+                    <td>
+                        <a style="color:red" href="TrainingVideoEdit/@Model.Rows[i]["TrainingVideoID"]">Edit</a>
+                    </td>
+                    <td>
+                        <a style="color:red" href="TrainingVideoDelete/@Model.Rows[i]["TrainingVideoID"]">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+
+    </table>
+
+</form>
+

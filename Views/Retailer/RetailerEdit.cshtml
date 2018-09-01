@@ -1,0 +1,139 @@
+﻿@using myproject.Models
+@using System.Data
+@model DataTable
+
+@{
+    Layout = "~/Views/_MasterLayout.cshtml";
+
+    //  ViewBag.Title = "RetailerEdit";
+    DataTable dtCT = ViewBag.dtCT;
+    Retailer f = (Retailer)Session["Retailer"];
+
+}
+
+<div id="maincontainer">
+    <section id="product">
+        <div class="container">
+            <div class="row">
+                <!-- Register Account-->
+                <div class="span9">
+                    <h1 class="heading1"><span class="maintext">RETAILER EDIT </span><span class="subtext"> Edit Your Details Here</span></h1>
+
+                    <form class="form-horizontal" action="/Retailer/RetailerUpdate" method="post" enctype="multipart/form-data">
+
+                        <h3 class="heading3">Your Personal Details</h3>
+                        <div class="registerbox">
+                            <fieldset>
+                                <div class="control-group">
+                                    <label class="control-label">NAME:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="Name" value="@f.Name">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">USERNAME:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="Username" value="@f.Username">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">PASSWORD:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="Password" value="@f.Password">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"> ADDRESS:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="Address" value="@f.Address">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"> CITY:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="City" value="@f.City">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label"> DISTRICT:</label>
+                                    <div class="controls">
+
+
+                                        @Html.DropDownList("DistrictID", new SelectList(dtCT.DefaultView, "DistrictID", "Name", f.DistrictID))
+
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label"> EMAIL:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="Email" value="@f.Email">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"> PHONE NO:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="Phone" value="@f.Phone">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"> COMPANY NAME:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="CompanyName" value="@f.CompanyName">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label"> CERTIFICATE:</label>
+                                    <div class="controls">
+                                        @if (f.RetailerID > 0)
+                                          {
+                                            <img src="@f.Certificate" style="max-height:200px; max-width:200px; border: solid 3px #888888;" />
+                                            <br />
+                                        }
+
+                                        <input type="file" name="Certificate"
+                                               id="fileupload"  class="input-xlarge">
+                                    </div>
+                                </div>
+                               
+
+
+                               
+                                <div class="control-group">
+
+                                    <div class="controls">
+                                        <input type="hidden" name="RetailerID" value="@f.RetailerID" />
+                                        <button type="submit" id="button1" class="btn btn-success">Submit</button>
+
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </div>
+
+                    </form>
+                    <div class="clearfix"></div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

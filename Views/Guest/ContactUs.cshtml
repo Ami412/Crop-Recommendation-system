@@ -1,0 +1,41 @@
+﻿@model myproject.Models.ContactUs
+@using System.Data
+
+@{
+    Layout = "~/Views/_MasterLayout.cshtml";
+  //  ViewBag.Title = "ContactUs";
+}
+
+<div id="maincontainer">
+    <section id="product">
+        <div class="container">
+            <!--  breadcrumb -->
+            <!-- Contact Us-->
+            <h1 class="heading1"><span class="maintext">Contact</span><span class="subtext"> Contact Us for more</span></h1>
+            <div class="row">
+                <div class="span9">
+                    <form class="form-vertical" action="/Guest/ContactInsert" method="get"  enctype="multipart/form-data">
+                        <fieldset>
+                            <div class="control-group">
+                                <label for="SoilType" class="control-label">Choose Soil Type <span class="required"></span></label>
+                                <div class="controls">
+                                    <input type="text" class="required" id="SoilType" value="" name="SoilType">
+                                </div>
+                            </div>
+                           
+                         
+                          
+                                <input type="submit" value="Submit" class="btn btn-orange" />
+                               
+                      
+                        </fieldset>
+                    </form>
+                </div>
+
+             
+
+            </div>
+        </div>
+    </section>
+</div>
+

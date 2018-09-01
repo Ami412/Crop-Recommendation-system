@@ -1,0 +1,45 @@
+﻿@using myproject.Models
+@using System.Data
+@model DataTable
+@{
+    ViewBag.Title = "Crops";
+    CropType = ViewBag.Cat;
+}
+
+<table class="table table-striped" border="1" style="border-color:lightgrey;">
+    <tr>
+        <th>CropID</th>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>CropType</th>
+        <th>Details</th>
+        <th>Season</th>
+        <th>SoilType</th>
+        <td></td>
+        <td></td>
+
+    </tr>
+    @for (int i = 0; i < Model.Rows.Count; i++)
+    {
+        <tr>
+            <td>@Model.Rows[i]["CropID"]</td>
+            <td>@Model.Rows[i]["Name"]</td>
+            <td>@Model.Rows[i]["Photo"]</td>
+            <td>@Model.Rows[i]["CropTypeID"]</td>
+            <td>@Model.Rows[i]["Details"]</td>
+            <td>@Model.Rows[i]["Season"]</td>
+            <td>@Model.Rows[i]["SoilType"]</td>
+
+            <td>
+                <a style="color:red" href="CropEdit/@Model.Rows[i]["CropID"]">Edit</a>
+            </td>
+            <td>
+                <a style="color:red" href="CropDelete/@Model.Rows[i]["CropID"]">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+

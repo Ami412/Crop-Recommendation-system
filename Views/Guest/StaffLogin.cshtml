@@ -1,0 +1,67 @@
+﻿@model myproject.Models.Staff
+@{
+    Layout = "~/Views/_MasterLayout.cshtml";
+
+  //  ViewBag.Title = "login";
+
+}
+
+
+<div id="container"  >
+    <div class="row row-centered">
+        <div class="col-xs-6 col-centered"></div>
+        <div class="col-xs-6 col-centered"></div>
+
+        <section id="product">
+            <div class="container">
+
+                <!-- Account Login-->
+                <div class="row">
+                    <div class="span9">
+                        <h1 class="heading1"><span class="maintext">Staff Login</span></h1>
+
+                        <section class="returncustomer">
+
+                            <div class="loginbox">
+
+                                <form class="form-vertical" action="/Guest/Validation" method="post">
+                                    <fieldset>
+                                        <div class="control-group">
+                                            <label class="control-label">USERNAME:</label>
+                                            <div class="controls">
+                                                <input type="text" class="span3" name="Username" required="required">
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label">PASSWORD:</label>
+                                            <div class="controls">
+                                                <input type="password" class="span3" required="required" name="Password">
+                                            </div>
+                                        </div>
+                                        <a class="" href="#">Forgotten Password</a>
+                                        <br>
+                                        <br>
+                                        <input type="submit" value="Login" class="btn btn-orange" />
+
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+﻿@model myproject.Models.Retailer
+@using System.Data
+
+@{
+    Layout = "~/Views/_MasterLayout.cshtml";
+    //  ViewBag.Title = "RetailerRegistration";
+    DataTable dtCT = ViewBag.dtCT;
+}
+
+
+
+<div id="maincontainer">
+    <section id="product">
+        <div class="container">
+            <div class="row">
+                <!-- Register Account-->
+                <div class="span9">
+                    <h1 class="heading1"><span class="maintext">Retailer Registration</span><span class="subtext">Register Your details with us</span></h1>
+
+                    <form class="form-horizontal" action="/Guest/RetailerInsert" method="post" enctype="multipart/form-data">
+
+                        <h3 class="heading3">Your Personal Details</h3>
+                        <div class="registerbox">
+                            <fieldset>
+                                <div class="control-group">
+                                    <label class="control-label">NAME:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="Name">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">USERNAME:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge"  required="required" name="Username">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">PASSWORD:</label>
+                                    <div class="controls"> 
+                                        <input type="password" class="input-xlarge"  required="required" name="Password">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"> ADDRESS:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge"  required="required" name="Address">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"> CITY:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge"  required="required" name="City">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"> DISTRICT:</label>
+                                    <div class="controls">
+
+                                        @Html.DropDownList("DistrictID", new SelectList(dtCT.DefaultView, "DistrictID", "Name"))
+
+                                    </div>
+                                </div>    
+
+
+                                
+                                <div class="control-group">
+                                    <label class="control-label"> EMAIL:</label>
+                                    <div class="controls">
+                                        <input type="email" class="input-xlarge" required="required" name="Email">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"> PHONE NO:</label>
+                                    <div class="controls">
+                                        <input type="text"  maxlength="10" class="input-xlarge" required="required" name="Phone">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label"> COMPANY NAME:</label>
+                                    <div class="controls">
+                                        <input type="text" class="input-xlarge" required="required" name="CompanyName">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label">CERTIFICATE</label>
+                                    <div class="controls">
+                                       <input type="file" name="Certificate" value="Photo"
+                                              required="required">
+                                                            
+                                    </div>
+                                </div>
+
+
+                               
+                               
+
+                               
+                                <div class="control-group">
+                                    
+                                    <div class="controls">
+                                        <input type="Submit" class="btn btn-orange" value="Submit" name="Submit">
+                                    </div>
+                                </div>
+
+                                  
+                              
+                            </fieldset>
+                        </div>
+                       
+                    </form>
+                    <div class="clearfix"></div>
+                    <br>
+                </div>
+               </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

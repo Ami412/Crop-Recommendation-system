@@ -1,0 +1,217 @@
+﻿
+@using myproject.Models
+@using System.Data
+@model DataTable
+
+@{
+    Layout = "~/Views/_MasterLayout.cshtml";
+    ViewBag.Title = "Crops";
+    CropType C = ViewBag.Cat;
+    CropType ct = new CropType();
+    DataTable dt = ct.selectall();
+
+}
+
+
+<div id="maincontainer">
+    <section id="product">
+        <div class="container">
+            <!--  breadcrumb -->
+
+            <div class="row">
+                <!-- Sidebar Start-->
+                <aside class="span3">
+                    <!-- Category-->
+                    <div class="sidewidt">
+                        <h2 class="heading2"><span>Menu</span></h2>
+                        <ul class="nav nav-list categories">
+                            @for (int i = 0; i < dt.Rows.Count; i++)
+                            {
+                                <li>
+                                    <a href="/Guest/Crops/@dt.Rows[i]["CropTypeID"]">@dt.Rows[i]["Name"]</a>
+                                </li>
+                                @*  <li>
+                                        <a href="category.html">Pulses</a>
+                                    </li>
+                                    <li>
+                                        <a href="category.html">Cash Crops </a>
+                                    </li>
+                                    <li>
+                                        <a href="category.html">OilSeeds</a>
+                                    </li>
+                                    <li>
+                                        <a href="category.html">Plantation Crops</a>
+                                    </li>
+                                    <li>
+                                        <a href="category.html">Horticulture Crops</a>
+                                    </li>*@
+                            }
+                        </ul>
+                    </div>
+                    <!--  Best Seller -->
+                    <div class="sidewidt">
+                        @*  <h2 class="heading2"><span>Best Seller</span></h2>
+                            <ul class="bestseller">
+                                <li>
+                                    <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
+                                    <a class="productname" href="product.html"> Product Name</a>
+                                    <span class="procategory">Women Accessories</span>
+                                    <span class="price">$250</span>
+                                </li>
+                                <li>
+                                    <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
+                                    <a class="productname" href="product.html"> Product Name</a>
+                                    <span class="procategory">Electronics</span>
+                                    <span class="price">$250</span>
+                                </li>
+                                <li>
+                                    <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
+                                    <a class="productname" href="product.html"> Product Name</a>
+                                    <span class="procategory">Electronics</span>
+                                    <span class="price">$250</span>
+                                </li>
+                            </ul>*@
+                    </div>
+                    <!-- Latest Product -->
+                    <div class="sidewidt">
+                        @* <h2 class="heading2"><span>Latest Products</span></h2>
+                            <ul class="bestseller">
+                                <li>
+                                    <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
+                                    <a class="productname" href="product.html"> Product Name</a>
+                                    <span class="procategory">Women Accessories</span>
+                                    <span class="price">$250</span>
+                                </li>
+                                <li>
+                                    <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
+                                    <a class="productname" href="product.html"> Product Name</a>
+                                    <span class="procategory">Electronics</span>
+                                    <span class="price">$250</span>
+                                </li>
+                                <li>
+                                    <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
+                                    <a class="productname" href="product.html"> Product Name</a>
+                                    <span class="procategory">Electronics</span>
+                                    <span class="price">$250</span>
+                                </li>
+                            </ul>*@
+                    </div>
+                    <!--  Must have -->
+                    <div class="sidewidt">
+                        <h2 class="heading2"><span></span></h2>
+                        <div class="flexslider" id="mainslider">
+                            <ul class="slides">
+                                <li>
+
+                                    <img src="~/musthave/coffee.jpg" />
+                                </li>
+                                <li>
+
+                                    <img src="~/musthave/coconut.jpg" />
+                                </li>
+                                <li>
+                                    <img src="~/musthave/Cotton.jpg" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+                <!-- Sidebar End-->
+                <!-- Category-->
+                <div class="span9">
+                    <!-- Category Products-->
+                    <section id="category">
+                        <div class="row">
+                            <div class="span9">
+                                <!-- Sorting-->
+                                <div class="sorting well">
+
+                                    <div class="btn-group pull-right">
+                                        <button class="btn btn-orange" id="grid"><i class="icon-th icon-white"></i></button>
+                                        <button class="btn" id="list">
+                                            <i class="icon-th-list"></i>
+                                        </button>
+
+                                    </div>
+                                </div>
+                                <!-- Category-->
+                                <section id="categorygrid">
+                                    <ul class="thumbnails grid">
+                                      
+
+                                        @for (int i = 0; i < Model.Rows.Count; i++)
+                                        {
+                                            <li class="span3">
+                                                <a class="prdocutname" href="product.html" style="text-decoration-color:orangered;">@Model.Rows[i]["Name"]</a>
+                                                <div class="thumbnail">
+                                                    <a href="/Guest/AllPackets/@Model.Rows[i]["CropID"]"><img alt="" src="@Model.Rows[i]["Photo"]"></a>
+
+                                                    <div class="pricetag">
+                                                        <span class="spiral"></span><a href="/Guest/AllPackets/@Model.Rows[i]["CropID"]" class="productcart">MORE INFO</a>
+                                                        <div class="price">
+                                                            <div class="pricenew"></div>
+                                                            <div class="priceold"></div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+
+                                       
+
+                                    </ul>
+                                  
+                                    <ul class="thumbnails list row">
+                                        @for (int i = 0; i < Model.Rows.Count; i++)
+                                        {
+                                            <li>
+                                                <div class="thumbnail">
+                                                    <div class="row">
+                                                        <div class="span3">
+
+                                                            <a href="/Guest/AllPackets/@Model.Rows[i]["CropID"]"><img width="500" alt="" src="@Model.Rows[i]["Photo"]"></a>
+                                                        </div>
+                                                        <div class="span6">
+                                                            <a class="prdocutname" href="product.html">@Model.Rows[i]["Name"]</a>
+                                                            <div class="productdiscrption">
+                                                                @Model.Rows[i]["Details"]
+                                                            </div>
+                                                            <div class="pricetag">
+                                                                <span class="spiral"></span><a href="/Guest/AllPackets/@Model.Rows[i]["CropID"]" class="productcart">MORE INFO</a>
+                                                                <div class="price">
+                                                                    <div class="pricenew"></div>
+                                                                    <div class="priceold"></div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+
+                                    </ul>
+
+                                </section>
+
+
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+                             
+
+
+                             
+
+
+
+
+

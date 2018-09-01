@@ -1,0 +1,504 @@
+﻿@using System.Data
+@using myproject.Models
+@{
+    CropType ct = new CropType();
+    DataTable dt = ct.selectall();
+
+    VideoCategory vc = new VideoCategory();
+    DataTable dd = vc.selectall();
+
+
+    Crop c = new Crop();
+    DataTable dc = c.selectall();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
+    <link href="~/UserSide/css/bootstrap.css" rel="stylesheet">
+    <link href="~/UserSide/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="~/UserSide/css/style.css" rel="stylesheet">
+    <link href="~/UserSide/css/flexslider.css" type="text/css" media="screen" rel="stylesheet" />
+    <link href="~/UserSide/css/jquery.fancybox.css" rel="stylesheet">
+    <link href="~/UserSide/css/cloud-zoom.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    <!-- fav -->
+    <link rel="shortcut icon" href="~/UserSide/assets/ico/favicon.html">
+</head>
+<body>
+    <!-- Header Start -->
+    <header >
+        <div class="headerstrip"  >
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <a href="" class="logo pull-left">
+                        <img src="~/UserSide/img/logo17.png" title="AGRISTORE"/></a>
+                        <!-- Top Nav Start -->
+                        <div class="pull-left">
+                            <div class="navbar" id="topnav">
+                                <div class="navbar-inner">
+                                    <ul class="nav">
+                                       @if (Session["Farmer"] != null)
+                                       {
+                                        <li>
+                                            <a class="" href="~/Guest/Homepage1">Home</a>
+                                        </li>
+                                            <li>
+                                                <a class="" href="~/Farmer/OrderSummary">Shopping Cart</a>
+                                            </li>
+                                            <li>
+                                                <a class="" href="~/Farmer/MyOrders">CheckOut </a>
+                                            </li>
+
+
+                                       }
+                                       else if (Session["Retailer"] != null)
+                                       {
+                                        <li>
+                                            <a class="" href="~/Guest/Homepage1">Home</a>
+                                        </li>
+                                            <li>
+                                                <a class="" href="~/Retailer/OrdersGot">Received Orders</a>
+                                            </li>
+
+                                       }
+                                       else
+                                       {
+                                             <li>
+                                            <a class="" href="~/Guest/Homepage1">Home</a>
+                                                
+                                            </li>
+                                         
+                                            <li>
+                                                <a class="" href="#">Shopping Bag</a>
+                                            </li>
+                                            <li>
+                                                <a class="" href="#"></a>
+                                            </li>
+
+                                       }
+                                           
+                                      
+                                      
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Top Nav End -->
+                        <div class="pull-right">
+                            <form class="form-search top-search">
+                                <input type="text" class="input-medium search-query" placeholder="Search Here…">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+    
+
+       
+            <div id="categorymenu">
+                <nav class="subnav">
+                    <ul class="nav-pills categorymenu">
+
+                       @if (Session["Retailer"] != null)
+                       {
+
+                        <li>
+                            <a href="~/Guest/HomePage1">Home</a>
+                        </li>
+
+                        @*<li>
+                            <a href=""><b>Buy Buy Seeds</b></a>
+                            <div>
+                                <ul>
+                                    @for (int i = 0; i < dt.Rows.Count; i++)
+                                    {
+                                        <li>
+                                            <a href="/Guest/Crops/@dt.Rows[i]["CropTypeID"]">@dt.Rows[i]["Name"]</a>
+                                        </li>
+                                    }
+                                </ul>
+
+                            </div>
+                        </li>*@
+                        <li>
+                            <a href="">Learning Videos</a>
+                            <div>
+                                <ul>
+                                    @for (int i = 0; i < dd.Rows.Count; i++)
+                                    {
+                                        <li>
+                                            <a href="/Guest/TrainingVideos/@dd.Rows[i]["VideoCategoryID"]">@dd.Rows[i]["CategoryName"]</a>
+                                        </li>
+                                    }
+                                </ul>
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="/Retailer/OrdersGot">My Orders</a>
+                        </li>
+
+                        <li>
+                            <a href="">Profile</a>
+                            <div>
+                                <ul>
+                                   
+                                   
+                                    <li>
+                                        @if (Session["Retailer"] != null)
+                                        {
+
+                                            <a href="~/Retailer/RetailerEdit">Edit Profile</a>
+                                        }
+
+                                    </li>
+                                   
+
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="~/Retailer/PacketDetail1">Add Packet</a>
+                           
+                        </li>
+                        <li>
+                            @if (Session["Retailer"] != null)
+                            {
+
+                                <a href="~/Retailer/PacketList">Show Packet</a>
+                            }
+                        </li>
+
+                             <li>
+                            <a href="~/Guest/Feedback">Feedback</a>
+
+                        </li>
+
+                        <li>
+                            <a href="~/Guest/Recommendation">Recommendation</a>
+                        </li>
+                        <li>
+                            <a href="~/Guest/AboutUs">About Us</a>
+                        </li>
+                       
+                        <li>
+                            <a href="/Guest/Logout">Logout</a>
+                        </li>
+
+
+
+                       }
+
+                       else if (Session["Farmer"] != null)
+                       {
+
+                        <li>
+
+                            <a href="~/Guest/HomePage1"><b>Home</b></a>
+                        </li>
+                        <li>
+                            <a href=""><b>Buy Seeds</b></a>
+                            <div>
+                                <ul>
+                                    @for (int i = 0; i < dt.Rows.Count; i++)
+                                    {
+                                        <li>
+                                            <a href="/Guest/Crops/@dt.Rows[i]["CropTypeID"]"><b>@dt.Rows[i]["Name"]</b></a>
+                                        </li>
+                                    }
+                                </ul>
+
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><b>Learning Videos</b></a>
+                            <div>
+                                <ul>
+                                    @for (int i = 0; i < dd.Rows.Count; i++)
+                                    {
+                                        <li>
+                                            <a href="/Guest/TrainingVideos/@dd.Rows[i]["VideoCategoryID"]"><b>@dd.Rows[i]["CategoryName"]</b></a>
+                                        </li>
+                                    }
+                                </ul>
+
+                            </div>
+                        </li>
+
+                      
+
+                        <li>
+                            <a href=""><b>Profile</b></a>
+                            <div>
+                                <ul>
+
+
+                                   
+
+                                    <li>
+                                        @if (Session["Farmer"] != null)
+                                        {
+
+                                            <a href="~/Farmer/FarmerEdit"><b>Edit Profile</b></a>
+                                        }
+                                      
+                                    </li>
+
+
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="~/Farmer/OrderSummary"><b>My Cart</b></a>
+                        </li>
+                        <li>
+                            <a href="/Farmer/MyOrders"><b>Shopping Bag</b></a>
+                        </li>
+
+                        <li>
+                            <a href="~/Guest/Feedback"><b>Feedback</b></a>
+
+                        </li>
+                        <li>
+                            <a href="~/Guest/Recommendation"><b>Recommendation</b></a>
+                        </li>
+                        <li>
+                            <a href="~/Guest/AboutUs"><b>About Us</b></a>
+                        </li>
+                      
+                        <li>
+                            <a href="~/Guest/Logout"><b>Logout</b></a>
+                        </li>
+
+                       }
+
+
+
+                       else
+                       {
+
+                        <li>
+
+                            <a href="~/Guest/HomePage1"><b>Home</b></a>
+                        </li>
+                        <li>
+                            <a href=""><b>Buy Seeds</b></a>
+                            <div>
+                                <ul>
+                                    @for (int i = 0; i < dt.Rows.Count; i++)
+                                    {
+                                        <li>
+                                            <a href="/Guest/Crops/@dt.Rows[i]["CropTypeID"]"><b>@dt.Rows[i]["Name"]</b></a>
+                                        </li>
+                                    }
+                                </ul>
+
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><b>Learning Videos</b></a>
+                            <div>
+                                <ul>
+                                    @for (int i = 0; i < dd.Rows.Count; i++)
+                                    {
+                                        <li>
+                                            <a href="/Guest/TrainingVideos/@dd.Rows[i]["VideoCategoryID"]"><b>@dd.Rows[i]["CategoryName"]</b></a>
+                                        </li>
+                                    }
+                                </ul>
+
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/Guest/Gallery"><b>Gallery</b></a>
+                        </li>
+
+
+                        <li>
+                            <a href=""><b>Farmer</b></a>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <a href="~/Guest/FarmerRegistration"><b>Farmer Registration</b></a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Guest/FarmerLogin"><b>Login</b></a>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href=""><b>Retailer</b></a>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <a href="~/Guest/RetailerRegistration"><b>Retailer Registration</b></a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Guest/RetailerLogin"><b>Login</b></a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href=""><b>Admin</b></a>
+                            <div>
+                                <ul>
+
+                                    <li>
+                                        <a href="~/Guest/StaffLogin"><b>Login</b></a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="~/Guest/Feedback"><b>Feedback</b></a>
+                           
+                        </li>
+                        <li>
+                            <a href="~/Guest/Recommendation"><b>Recommendation</b></a>
+                        </li>
+                        <li>
+                            <a href="~/Guest/AboutUs"><b>About Us</b></a>
+                        </li>
+                       
+
+                       }
+                        
+                          
+                       
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+    <div id="maincontainer">
+                        @RenderBody()
+    </div>
+    <!-- /maincontainer -->
+    <!-- Footer -->
+    <footer id="footer">
+        <section class="footersocial">
+            <div class="container">
+                <div class="row">
+                    <div class="span3 aboutus">
+                        <h2>About Us </h2>
+                        <p>
+                            We want you to avail the best quality products from the best sellers in the country.
+                            Hence, Agri Store Assured, rigorous quality check processes, right from storage to packaging.
+                            You are assured to get home the best quality products with free* delivery.
+                        </p>
+                    </div>
+                    <div class="span3 contact">
+                        <h2>Contact Us </h2>
+                        <ul>
+                            <li class="phone"> +91 9427322769</li>
+                            <li class="mobile">+91 9714370883</li>
+                            <li class="email"> swatidhol@gmail.com</li>
+                            <li class="email"> patelami@ymail.com</li>
+                        </ul>
+                    </div>
+                    <div class="span3 twitter">
+                        <h2>Twitter </h2>
+                        <div id="twitter">
+                        </div>
+                    </div>
+                    <div class="span3 facebook">
+                        <h2>Facebook </h2>
+                        <div id="fb-root"></div>
+                        <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+                        <script type="text/javascript">FB.init("");</script>
+                        <script type="text/javascript">
+//<![CDATA[
+document.write('<fb:fan profile_id="80655071208" stream="0"	connections="6"	logobar="0" height="190px"	width="200"css="css/fb.css"></fb:fan> ');
+//]]>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="footerlinks">
+            <div class="container">
+                <div class="info">
+                    <ul>
+                        <li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#">Terms &amp; Conditions</a>
+                        </li>
+                        <li>
+                            <a href="#">Affiliates</a>
+                        </li>
+                        <li>
+                            <a href="#">Newsletter</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="footersocial">
+                    <a href="#" title="Facebook" class="facebook">Facebook</a>
+                    <a href="#" title="Twitter" class="twitter">Twitter</a>
+                    <a href="#" title="Linkedin" class="linkedin">Linkedin</a>
+                    <a href="#" title="rss" class="rss">rss</a>
+                    <a href="#" title="Googleplus" class="googleplus">Googleplus</a>
+                    <a href="#" title="Skype" class="skype">Skype</a>
+                    <a href="#" title="Flickr" class="flickr">Flickr</a>
+                </div>
+            </div>
+        </section>
+        <section class="copyrightbottom">
+            <div class="container">
+                <div class="row">
+                    <div class="span6"> All images are copyright to their owners. </div>
+                    <div class="span6 textright"> AmiSwati2016 </div>
+                </div>
+            </div>
+        </section>
+       
+    </footer>
+    <!-- javascript
+        ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="~/UserSide/js/jquery.js"></script>
+    <script src="~/UserSide/js/bootstrap.js"></script>
+    <script src="~/UserSide/js/respond.min.js"></script>
+    <script src="~/UserSide/js/application.js"></script>
+    <script src="~/UserSide/js/bootstrap-tooltip.js"></script>
+    <script defer src="~/UserSide/js/jquery.fancybox.js"></script>
+    <script defer src="~/UserSide/js/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="~/UserSide/js/jquery.tweet.js"></script>
+    <script src="~/UserSide/js/cloud-zoom.1.0.2.js"></script>
+    <script type="text/javascript" src="~/UserSide/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="~/UserSide/js/jquery.carouFredSel-6.1.0-packed.js"></script>
+    <script type="text/javascript" src="~/UserSide/js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="~/UserSide/js/jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript" src="~/UserSide/js/jquery.ba-throttle-debounce.min.js"></script>
+    <script defer src="~/UserSide/js/custom.js"></script>
+</body>
+</html>
+

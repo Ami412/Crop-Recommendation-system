@@ -1,0 +1,48 @@
+﻿@model myproject.Models.District
+
+
+@{
+    Layout = "~/Views/_formlayout.cshtml";
+    //  ViewBag.Title = "DistrictEdit";
+}
+<div class="x_title">
+    <h2>DISTRICT EDIT </h2>
+
+    <div class="clearfix"></div>
+</div>
+
+<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/Admin/DistrictUpdate" method="post">
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+            NAME:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" name="Name" value="@Model.Name" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">
+            STATENAME:
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" name="StateName" value="@Model.StateName" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="phone" class="control-label col-md-3 col-sm-3 col-xs-12">COUNTRYNAME:</label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input id="phone" name="CountryName"  value="@Model.CountryName" required="required" class="form-control col-md-7 col-xs-12" value="India" readonly="true" type="text">
+        </div>
+    </div>
+
+    <div class="ln_solid"></div>
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <input type="hidden" name="DistrictID" value="@Model.DistrictID" />
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,60 @@
+﻿@using System.Data
+@model DataTable
+
+@{
+    Layout = "~/Views/_formlayout.cshtml";
+  //  ViewBag.Title = "StaffList";
+}
+
+
+<div class="x_title">
+    <h2>STAFF LIST </h2>
+
+    <div class="clearfix"></div>
+</div>
+
+<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/Admin/StaffList" method="post" enctype="multipart/form-data">
+
+
+    <table id="datatable" class="table table-striped table-bordered" border="1" style="border-color:lightgrey;">
+        <thead>
+            <tr>
+                <th>StaffID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Username</th>
+                <th>Password</th>
+
+                <td></td>
+                <td></td>
+
+            </tr>
+            </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Rows.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Rows[i]["StaffID"]</td>
+                    <td>@Model.Rows[i]["Name"]</td>
+                    <td>@Model.Rows[i]["Email"]</td>
+                    <td>@Model.Rows[i]["Phone"]</td>
+                    <td>@Model.Rows[i]["Username"]</td>
+                    <td>@Model.Rows[i]["Password"]</td>
+
+
+                    <td>
+                        <a style="color:red" href="StaffEdit/@Model.Rows[i]["StaffID"]">Edit</a>
+                    </td>
+                    <td>
+                        <a style="color:red" href="StaffDelete/@Model.Rows[i]["StaffID"]">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+
+    </table>
+
+</form>
+
+

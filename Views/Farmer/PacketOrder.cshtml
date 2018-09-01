@@ -1,0 +1,100 @@
+﻿@using myproject.Models
+@using System.Data
+@model DataTable
+
+@{
+    Layout = "~/Views/_MasterLayout.cshtml";
+    // ViewBag.Title = "Packet Order";
+    //Packet C = ViewBag.Cat;
+    // DataTable dtCT = ViewBag.dtCT;
+
+    // DataTable dt = C.selectall();
+    Farmer f = (Farmer)Session["Farmer"];
+   
+
+}
+<style>
+
+    .productpagecart .cart {
+        background: #F25C27 url(/UserSide/img/productpageicon.png) no-repeat 0 0;
+        color: #fff;
+        padding: 15px 15px 15px 60px;
+        font-size: 18px;
+     }
+</style>
+<div id="maincontainer">
+    <section id="product">
+        <div class="container">
+            <!-- Product Details-->
+            <div class="row">
+                <form class="form-horizontal" action="/Farmer/PacketOrderInsert" method="post" enctype="multipart/form-data">
+                    @for (int i = 0; i < Model.Rows.Count; i++)
+                    {
+
+
+
+                        <div class="span5">
+                            <ul class="thumbnails mainimage">
+                                <li>
+                                    <a href=""><img alt="" src="@Model.Rows[i]["Photo"]"></a>
+                                </li>
+
+
+                            </ul>
+
+
+                        </div>
+                <!-- Right Details-->
+                        <div class="span7">
+                            <div class="row">
+                                <div class="span7">
+                                    <h1 class="productname"><span class="bgnone">@Model.Rows[i]["Title"]</span></h1>
+                                    <div class="productprice">
+                                        <div class="productpageprice">
+                                            <span class="spiral"></span>₹ @Model.Rows[i]["Price"].00
+                                        </div>
+
+                                    </div>
+                                    <a class="prdocutname" href=""><h4><b>RETAILER:</b>  @Model.Rows[i]["Name"]</h4>  </a>
+                                    <a class="prdocutname" href=""><h4><b>DESCRIPTION:</b>  @Model.Rows[i]["Description"]</h4>  </a>
+                                    <a class="prdocutname" href=""><h4><b>PACKET SIZE:</b> @Model.Rows[i]["PacketSize"] gm</h4>  </a>
+                                    <a class="prdocutname" href=""><h4><b>QUANTITY OF PACKETS</b></h4></a>
+                                    <input type="number" min="0" max="200" style="width:90px;" class="span3" name="Qty">
+
+                                    <div class="prdocutname">
+                                        <div class="clear"></div>
+                                        <div class="control-group">
+                                            <div class="control-group">
+
+                                                <div class="controls">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul class="productpagecart">
+
+
+                                        <li>
+                                           
+                                                    <input type="hidden" name="PacketID" value="@Model.Rows[i]["PacketID"]" />
+                                                    <button class="cart" type="submit" name="submit" >ADD TO CART</button>
+                                           @*<a class="cart" href="~/Controllers/FarmerController/PacketOrderInsert">BUY NOW</a>*@ 
+                                        </li>
+
+                                    </ul>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+</div>
